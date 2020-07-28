@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const TournamentSchema = new mongoose.Schema({
-  name: {
+  title: {
     type: String,
     required: true
   },
@@ -11,7 +11,7 @@ const TournamentSchema = new mongoose.Schema({
   },
   players: [
     {
-      name: { type: String, required: true, unique: true },
+      name: { type: String, required: true },
       matches: { type: Number, default: 0 },
       wins: { type: Number, default: 0 },
       losses: { type: Number, default: 0 },
@@ -27,6 +27,7 @@ const TournamentSchema = new mongoose.Schema({
   ],
   date: {
     type: Date,
+    required: true,
     default: Date.now
   }
 });
